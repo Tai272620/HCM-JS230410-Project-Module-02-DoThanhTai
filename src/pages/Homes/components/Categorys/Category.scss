@@ -1,0 +1,31 @@
+.category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+
+    .box {
+        padding: 2rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        background: #f7f7f7;
+        cursor: pointer;
+
+        img {
+            height: 7rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #130f40;
+        }
+    }
+
+    .box:hover {
+        background: #27ae60;
+
+        h3 {
+            color: #fff;
+        }
+    }
+}
