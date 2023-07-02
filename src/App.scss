@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import "@varScss";
 
 * {
   font-family: "Poppins", sans-serif;
@@ -9,7 +10,6 @@
   outline: none;
   border: none;
   text-decoration: none !important;
-  text-transform: capitalize;
   transition: 0.2s linear;
 }
 
@@ -19,44 +19,60 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8.5rem;
 }
+
 html::-webkit-scrollbar {
   width: 1rem;
 }
+
 html::-webkit-scrollbar-track {
   background: #fff;
 }
+
 html::-webkit-scrollbar-thumb {
   background: #27ae60;
   border-radius: 5rem;
 }
 
-$widthContent: 1440px;
-$heightNavbar: 200px;
-
 .App {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    .nav-container {
+  .nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: $heightNavbar;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    .nav-contents {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      .nav-contents {
-        width: 100%;
-        height: $heightNavbar;
-      }
+      max-width: $widthContent;
+      height: 100%;
+    }
+
+  }
+
+  .app_container {
+    width: 100%;
+    max-width: $widthContent;
+    height: 100%;
+  }
+
+  .footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .footer-contents {
+      width: 100%;
+      max-width: $widthContent;
     }
     
-    .app_container {
-        width: 100%;
-        max-width: 1440px;
-        height: 100%;
-    }
+  }
 }
-
 
 section {
   padding: 2rem 9%;

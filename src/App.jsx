@@ -2,6 +2,7 @@ import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 import LazyLoad from './LazyLoad'
 import Navbar from '@components/Navbars/Navbar'
+import Footer from './components/Footers/Footer';
 
 function App() {
   return (
@@ -25,6 +26,12 @@ function App() {
 
           </Route>
         </Routes>
+      </div>
+
+      <div className='footer-container'>
+        <div className="footer-contents">
+          <Footer />
+        </div>
       </div>
     </div>
   );

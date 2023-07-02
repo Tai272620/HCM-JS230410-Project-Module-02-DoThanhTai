@@ -11,9 +11,9 @@ export default function Navbar() {
             <Link to="/" className="logo"> <i className="fas fa-utensils"></i> food </Link>
 
             <nav className="navbar">
-                <Link to="/">home</Link>
-                <a href="#about">about</a>
-                <a href="#popular">popular</a>
+                <Link to="/">Home</Link>
+                <a href="#about" onClick={() => navigate("/")}>About</a>
+                <a href="#popular">Popular</a>
                 <div className="dropdown">
                     <button
                         className="btn btn-primary dropdown-toggle menu-button"
@@ -33,8 +33,8 @@ export default function Navbar() {
                         <Link to="/menu/drink"><a className="dropdown-item">Drink</a></Link>
                     </ul>
                 </div>
-                <a href="#order">order</a>
-                <a href="#blogs">blogs</a>
+                <a href="#order">Order</a>
+                <a href="#blogs">Blogs</a>
             </nav>
 
             <div className="icons">
