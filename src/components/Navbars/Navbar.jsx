@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Navbar.scss"
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLoginActions } from "@stores/slices/userLogin.slice"
 
 export default function Navbar() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const userLoginStore = useSelector(store => store.userLoginStore)
+
+    useEffect(() => {
+        dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
+    },[])
+
+    // console.log(userLoginStore.userInfo)
     return (
         <header className="header">
 

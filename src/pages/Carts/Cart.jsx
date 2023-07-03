@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { userLoginActions } from '@stores/slices/userLogin.slice';
+import { useDispatch, useSelector } from 'react-redux';
+
 import "./Cart.scss";
+import { productActions } from '../../stores/slices/product.slice';
 
 export default function Cart() {
+
+    const dispatch = useDispatch();
+
+    const userLoginStore = useSelector(store => store.userLoginStore)
+
+    useEffect(() => {
+        dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
+    }, [])
+
+    // console.log(userLoginStore.userInfor.carts);
+
+    let carts = userLoginStore.userInfor.carts;
+    // console.log(carts)
+
+    // carts = carts.map(() => {
+    //     dispatch(productActions.searchProductById(1))
+    // },[])
+
+    // console.log(carts)
+
+    useEffect(() => {
+        
+    })
+
+
     return (
         <section className="shopping-cart-container">
 
@@ -11,7 +40,22 @@ export default function Cart() {
 
                 <div className="box-container">
 
-                    <div className="box">
+                    {/* {carts?.map((food) =>
+                        <div className="box">
+                            <i className="fas fa-times"></i>
+                            <img src={food.url} alt="" />
+                            <div className="content">
+                                <h3>delicious food</h3>
+                                <span> quantity : </span>
+                                <input type="number" name="" value="1" id="" />
+                                <br />
+                                <span> price : </span>
+                                <span className="price"> $40.00 </span>
+                            </div>
+                        </div>
+                    )} */}
+
+                    {/* <div className="box">
                         <i className="fas fa-times"></i>
                         <img src="image/menu-1.png" alt="" />
                         <div className="content">
@@ -74,7 +118,7 @@ export default function Cart() {
                             <span> price : </span>
                             <span className="price"> $40.00 </span>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
 

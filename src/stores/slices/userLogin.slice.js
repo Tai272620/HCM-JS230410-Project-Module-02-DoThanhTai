@@ -13,6 +13,7 @@ const login = createAsyncThunk(
         }
     }
 )
+
 const checkTokenLocal = createAsyncThunk(
     "checkTokenLocal",
     async (token) => {
@@ -22,6 +23,16 @@ const checkTokenLocal = createAsyncThunk(
             users: res.data,
             token: token
         }
+    }
+)
+
+const updateCart = createAsyncThunk(
+    "updateCarts",
+    async (dataObj) => {
+        // localhost:4000/users/1
+        //console.log("dataObj",dataObj)
+        let res = await axios.patch(process.env.REACT_APP_SERVER_JSON + 'users/' + dataObj.userId, dataObj.carts);
+        return res.data
     }
 )
 
@@ -74,14 +85,19 @@ const userLoginSlice = createSlice(
             });
             // check token
             builder.addCase(checkTokenLocal.fulfilled, (state, action) => {
-                console.log("du lieu khi checktoken", action.payload)
+                //console.log("du lieu khi checktoken", action.payload)
                 let deToken = checkToken(action.payload.token, process.env.REACT_APP_JWT_KEY, process.env.REACT_APP_JWT_KEY);
                 let user = action.payload.users.find(user => user.userName == deToken.userName);
                 if (user) {
                     if (user.password == deToken.password) {
-                        state.userInfor = deToken;
+                        state.userInfor = user;
                     }
                 }
+            });
+            // update cart
+            builder.addCase(updateCart.fulfilled, (state, action) => {
+                state.userInfor = action.payload
+                localStorage.removeItem("carts")
             });
             // xử lý các pending và rejected
             builder.addMatcher(
@@ -93,14 +109,14 @@ const userLoginSlice = createSlice(
                 (state, action) => {
                     if (action.meta) {
                         if (action.meta.requestStatus == "pending") {
-                            console.log("đã vào pending của api: ", action.type)
+                            //console.log("đã vào pending của api: ", action.type)
                             // if (action.type == "deleteUserByid/pending") {
                             //     console.log("trường hợp pending của api delete")
                             // }
                             state.loading = true;
                         }
                         if (action.meta.requestStatus == "rejected") {
-                            //console.log("đã vào rejected của api: ", action.type)
+                            console.log("đã vào rejected của api: ", action.type)
                             state.loading = false;
                         }
                         if (action.meta.requestStatus == "fulfilled") {
@@ -118,6 +134,7 @@ const userLoginSlice = createSlice(
 export const userLoginActions = {
     ...userLoginSlice.actions,
     login,
-    checkTokenLocal
+    checkTokenLocal,
+    updateCart
 }
 export default userLoginSlice.reducer;

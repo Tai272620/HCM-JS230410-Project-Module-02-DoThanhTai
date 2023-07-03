@@ -4,6 +4,8 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { convertToUSD, randomId } from '@mieuteacher/meomeojs';
 import { productActions } from '../../stores/slices/product.slice';
+import { userLoginActions } from "@stores/slices/userLogin.slice"
+import FoodModal from '../../components/Modals/FoodModal';
 
 export default function Menu() {
 
@@ -11,15 +13,11 @@ export default function Menu() {
 
   const dispatch = useDispatch();
 
-  const productStore = useSelector(store => store.productStore)
+  const productStore = useSelector(store => store.productStore);
 
   useEffect(() => {
-    dispatch(productActions.findAllProducts())
-  },[])
-
-  // console.log(productStore);
-
-  const listFoods = productStore.listProducts.filter((food) => food.type === type)
+    dispatch(productActions.filterProductByType(type))
+  },[type])
 
   return (
     <section className="popular" id="popular">
@@ -31,11 +29,11 @@ export default function Menu() {
 
     <div className="box-container">
 
-        {listFoods.map((food, index) =>
+        {productStore.listProducts?.map((food) =>
             <div class="box" key={randomId()}>
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src={food.url} alt="" />
+                    <FoodModal food={food}></FoodModal>
                 </div>
                 <div class="content">
                     <h5>{food.name}</h5>
@@ -48,7 +46,7 @@ export default function Menu() {
                         <span> (50) </span>
                     </div>
                     <div class="price">{convertToUSD(food.price)} <span>$50.00</span></div>
-                    <a href="#" class="btn">add to cart</a>
+                    {/* <a class="btn">add to cart</a> */}
                 </div>
             </div>
         )}
