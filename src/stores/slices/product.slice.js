@@ -23,14 +23,14 @@ const filterProductByType = createAsyncThunk(
         let res = await axios.get(`${process.env.REACT_APP_SERVER_JSON}products?type=${type}`);
         return res.data
     }
-    
 )
 
 const productSlice = createSlice(
     {
         name: "product",
         initialState: {
-            listProducts: []
+            listProducts: [],
+            product: {}
         },
         extraReducers: (builder) => {
             // find all products
@@ -43,7 +43,7 @@ const productSlice = createSlice(
             })
             // seacrh product by id
             builder.addCase(searchProductById.fulfilled, (state, action) => {
-                state.listProducts = [...action.payload]
+                state.product = {...action.payload}
             })
         }
     }

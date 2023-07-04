@@ -1,35 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { userLoginActions } from '@stores/slices/userLogin.slice';
 import { useDispatch, useSelector } from 'react-redux';
-
 import "./Cart.scss";
 import { productActions } from '../../stores/slices/product.slice';
+import CartItem from './components/CartItem';
+import { convertToUSD } from '@mieuteacher/meomeojs';
 
 export default function Cart() {
-
     const dispatch = useDispatch();
 
     const userLoginStore = useSelector(store => store.userLoginStore)
 
+    const productStore = useSelector(store => store.productStore);
+
     useEffect(() => {
         dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
+        dispatch(productActions.findAllProducts())
     }, [])
 
-    // console.log(userLoginStore.userInfor.carts);
+    let carts = [...userLoginStore.userInfor.carts];
 
-    let carts = userLoginStore.userInfor.carts;
-    // console.log(carts)
+    let listProducts = productStore.listProducts
 
-    // carts = carts.map(() => {
-    //     dispatch(productActions.searchProductById(1))
-    // },[])
+    for (let i = 0; i < carts.length; i++) {
+        for (let j = 0; j < listProducts.length; j++) {
+            if (carts[i].productId === listProducts[j].id) {
+                carts[i] = Object.assign({}, carts[i], { url: listProducts[j].url });
+                carts[i] = Object.assign({}, carts[i], { price: listProducts[j].price });
+                carts[i] = Object.assign({}, carts[i], { name: listProducts[j].name });
+            }
+        }
+    }
 
-    // console.log(carts)
+    const calculateCartsTotalPrice = () => {
+        return carts?.reduce((accumulator, item) => accumulator + item.quantity * item.price, 0);
+    }
 
+    const [subTotal, setSubTotal] = useState(0)
+    
     useEffect(() => {
-        
-    })
-
+        setSubTotal(calculateCartsTotalPrice())
+    }, [])
 
     return (
         <section className="shopping-cart-container">
@@ -39,87 +50,9 @@ export default function Cart() {
                 <h3 className="title">your products</h3>
 
                 <div className="box-container">
-
-                    {/* {carts?.map((food) =>
-                        <div className="box">
-                            <i className="fas fa-times"></i>
-                            <img src={food.url} alt="" />
-                            <div className="content">
-                                <h3>delicious food</h3>
-                                <span> quantity : </span>
-                                <input type="number" name="" value="1" id="" />
-                                <br />
-                                <span> price : </span>
-                                <span className="price"> $40.00 </span>
-                            </div>
-                        </div>
-                    )} */}
-
-                    {/* <div className="box">
-                        <i className="fas fa-times"></i>
-                        <img src="image/menu-1.png" alt="" />
-                        <div className="content">
-                            <h3>delicious food</h3>
-                            <span> quantity : </span>
-                            <input type="number" name="" value="1" id="" />
-                            <br />
-                            <span> price : </span>
-                            <span className="price"> $40.00 </span>
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        <i className="fas fa-times"></i>
-                        <img src="image/menu-2.png" alt="" />
-                        <div className="content">
-                            <h3>delicious food</h3>
-                            <span> quantity : </span>
-                            <input type="number" name="" value="1" id="" />
-                            <br />
-                            <span> price : </span>
-                            <span className="price"> $40.00 </span>
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        <i className="fas fa-times"></i>
-                        <img src="image/menu-3.png" alt="" />
-                        <div className="content">
-                            <h3>delicious food</h3>
-                            <span> quantity : </span>
-                            <input type="number" name="" value="1" id="" />
-                            <br />
-                            <span> price : </span>
-                            <span className="price"> $40.00 </span>
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        <i className="fas fa-times"></i>
-                        <img src="image/menu-4.png" alt="" />
-                        <div className="content">
-                            <h3>delicious food</h3>
-                            <span> quantity : </span>
-                            <input type="number" name="" value="1" id="" />
-                            <br />
-                            <span> price : </span>
-                            <span className="price"> $40.00 </span>
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        <i className="fas fa-times"></i>
-                        <img src="image/menu-5.png" alt="" />
-                        <div className="content">
-                            <h3>delicious food</h3>
-                            <span> quantity : </span>
-                            <input type="number" name="" value="1" id="" />
-                            <br />
-                            <span> price : </span>
-                            <span className="price"> $40.00 </span>
-                        </div>
-                    </div> */}
-
+                    {carts?.map((food) =>
+                        <CartItem food={food} setSubTotal={setSubTotal}/>
+                    )}
                 </div>
 
             </div>
@@ -130,8 +63,8 @@ export default function Cart() {
 
                 <div className="box">
 
-                    <h3 className="subtotal"> subtotal : <span>$200</span> </h3>
-                    <h3 className="total"> total : <span>$200</span> </h3>
+                    <h3 className="subtotal"> subtotal : <span>{subTotal}</span> </h3>
+                    {/* <h3 className="total"> total : <span>$200</span> </h3> */}
 
                     <a href="#" className="btn">proceed to checkout</a>
 
