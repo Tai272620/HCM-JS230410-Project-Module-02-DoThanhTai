@@ -1,42 +1,90 @@
-import React, { useState } from 'react';
-import { auth } from "../../config/config";
-import "./Register.scss";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+import { userLoginActions } from '../../stores/slices/userLogin.slice';
+import Loading from '@components/Loadings/Loading'
+import axios from 'axios';
 
 export default function Register() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const userLoginStore = useSelector(store => store.userLoginStore);
 
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const [errorMsg, setErrorMsg] = useState("");
-    const [successMsg, setSuccessMsg] = useState("");
-
-    const handleSignup = (e) => {
-        e.preventDefault()
-        // console.log(fullName, email,password)
-    }
+    const [loadingCheck, setLoadingCheck] = useState(false);
+    useEffect(() => {
+        if (userLoginStore.userInfor == null) {
+            if (localStorage.getItem("token")) {
+                dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
+            }
+        } else {
+            navigate('/')
+        }
+    }, [userLoginStore.userInfor])
     return (
-        <div className='register-container'>
-            <h1>Sign Up</h1>
-            <form action="" className='form-group' onSubmit={handleSignup}>
-                <label htmlFor="">Full Name</label>
-                <input type="text" className='form-control' value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-                <br />
-                <label htmlFor="">Email</label>
-                <input type="email" className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <br />
-                <label htmlFor="">Password</label>
-                <input type="password" className='form-control' value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <br />
-                <div className="btn-box">
-                    <span>
-                        Already have an account
-                        <Link to="/login">Here</Link>
-                        <button className='btn btn-success'>SIGN UP</button>
-                    </span>
+        <div >
+            {
+                userLoginStore.loading || loadingCheck ? <Loading></Loading> : <></>
+            }
+            <form onSubmit={async (e) => {
+                e.preventDefault();
+                if (e.target.inputUserEmail.value == "" || e.target.inputUserName.value == "" || e.target.inputPassword.value == "" || e.target.inputRePassword.value == "") {
+                    alert("Please Enter Your Information !")
+                    return
+                }
+                if (e.target.inputPassword.value !== e.target.inputRePassword.value) {
+                    alert("Please Check your Password ")
+                    return
+                }
+                if (loadingCheck) {
+                    return
+                }
+                setLoadingCheck(true)
+                let resultCheck = await axios.get(process.env.REACT_APP_SERVER_JSON + "users" + "?email=" + e.target.inputUserEmail.value);
+                if (resultCheck.data.length != 0) {
+                    console.log(resultCheck.data);
+                    alert("This account already exists ");
+                    setLoadingCheck(false)
+                    return
+                }
+                setLoadingCheck(false)
+                console.log(e.target.inputUserName.value,
+                    e.target.inputUserEmail.value
+                );
+                dispatch(userLoginActions.register(
+                    {
+                        userName: e.target.inputUserName.value,
+                        email: e.target.inputUserEmail.value,
+                        password: e.target.inputPassword.value,
+                        isAdmin: false,
+                        firstName: "New",
+                        lastName: "Member",
+                        avatar: "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
+                        carts: []
+                    }
+                ))
+
+            }}>
+                <h1>Register</h1>
+                <div className='form-control'>
+                    <label htmlFor="">Email</label><br />
+                    <input id="valueEmail" name='inputUserEmail' type="text" placeholder="YOUR EMAIL" />
                 </div>
+                <div className='form-control'>
+                    <label htmlFor="">User name</label><br />
+                    <input id="valueUserName" name='inputUserName' type="text" placeholder="YOUR NAME" /> <br />
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="">Password</label><br />
+                    <input id="valuePassword" name='inputPassword' type="password" placeholder="PASSWORD" /> <br />
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="">Confirm Password</label><br />
+                    <input id="confirm" name='inputRePassword' type="password" placeholder="CONFIRM PASSWORD" /> <br />
+                </div>
+
+                <button type='submit'>SIGN IN</button>
             </form>
         </div>
+
     )
 }

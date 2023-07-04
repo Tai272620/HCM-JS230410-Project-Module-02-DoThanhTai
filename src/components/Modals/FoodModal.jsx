@@ -28,7 +28,7 @@ function FoodModal({ food }) {
       let carts = [];
       let flag = false;
 
-      carts = userLoginStore.userInfor.carts.slice().map(item => {
+      carts = userLoginStore.userInfor.carts?.slice().map(item => {
         if (item.productId == buyItem.productId) {
           let temp = { ...item };
           temp.quantity += buyItem.quantity;
@@ -39,10 +39,8 @@ function FoodModal({ food }) {
         return item
       })
 
-
-
       if (!flag) {
-        carts.push(buyItem)
+        carts?.push(buyItem)
       }
 
       dispatch(userLoginActions.updateCart(
@@ -127,7 +125,8 @@ function FoodModal({ food }) {
               addToCart({
                 productId: food.id,
                 quantity: quantity,
-                des: "asasasassas"
+                des: "asasasassas",
+                userId: userLoginStore.userInfor.id
               })
             }} className='addToCart-btn'>
               Add to cart

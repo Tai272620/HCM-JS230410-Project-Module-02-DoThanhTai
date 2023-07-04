@@ -14,6 +14,16 @@ const login = createAsyncThunk(
     }
 )
 
+const register = createAsyncThunk(
+    "register",
+    async (inforRegister) => {
+        // localhost:4000/users
+        let res = await axios.post(process.env.REACT_APP_SERVER_JSON + 'users', inforRegister);
+        return res.data
+
+    }
+)
+
 const checkTokenLocal = createAsyncThunk(
     "checkTokenLocal",
     async (token) => {
@@ -35,6 +45,20 @@ const updateCart = createAsyncThunk(
         return res.data
     }
 )
+
+const deleteProductFromCart = createAsyncThunk(
+    "deleteProductFromCart",
+    async ({ userId, productId }) => {
+        try {
+            // Gửi yêu cầu DELETE để xóa sản phẩm từ giỏ hàng của người dùng
+            const response = await axios.delete(`${process.env.REACT_APP_SERVER_JSON}users/${userId}/carts/${productId}`
+            );
+            return response.data; // Trả về dữ liệu từ phản hồi
+        } catch (error) {
+            throw new Error("Lỗi khi xóa sản phẩm khỏi giỏ hàng");
+        }
+    }
+);
 
 function createToken(userObj, privateKey) {
     return CryptoJS.AES.encrypt(JSON.stringify(userObj), privateKey).toString();
@@ -99,6 +123,19 @@ const userLoginSlice = createSlice(
                 state.userInfor = action.payload
                 localStorage.removeItem("carts")
             });
+            // delete product from cart
+            builder.addCase(deleteProductFromCart.fulfilled, (state, action) => {
+                console.log(action.payload)
+                state.userInfor = action.payload
+            });
+            //register
+            builder.addCase(register.fulfilled, (state, action) => {
+                state.userInfor = action.payload;
+                console.log("register ", action.payload);
+                // Mã hóa dữ liệu
+                let token = createToken(action.payload, process.env.REACT_APP_JWT_KEY);
+                localStorage.setItem("token", token);
+            });
             // xử lý các pending và rejected
             builder.addMatcher(
                 (action) => {
@@ -135,6 +172,9 @@ export const userLoginActions = {
     ...userLoginSlice.actions,
     login,
     checkTokenLocal,
-    updateCart
+    updateCart,
+    deleteProductFromCart,
+    register,
+
 }
 export default userLoginSlice.reducer;

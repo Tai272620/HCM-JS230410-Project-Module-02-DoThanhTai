@@ -9,48 +9,7 @@
       "lastName": "Hương",
       "email": "thuhuong@gmail.com",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623",
-      "carts": [
-        {
-          "productId": 17,
-          "quantity": 12,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 19,
-          "quantity": 5,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 33,
-          "quantity": 2,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 39,
-          "quantity": 5,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 18,
-          "quantity": 4,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 43,
-          "quantity": 10,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 1,
-          "quantity": 2,
-          "des": "asasasassas"
-        },
-        {
-          "productId": 32,
-          "quantity": 10,
-          "des": "asasasassas"
-        }
-      ]
+      "carts": []
     },
     {
       "id": 1,
@@ -61,6 +20,33 @@
       "lastName": "Nguyễn",
       "email": "thuhuong@gmail.com",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623"
+    },
+    {
+      "userName": "tai@gmail.com",
+      "email": "tai@gmail.com",
+      "password": "123",
+      "isAdmin": false,
+      "firstName": "New",
+      "lastName": "Member",
+      "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
+      "carts": [
+        {
+          "productId": 17,
+          "quantity": 3,
+          "des": "asasasassas"
+        },
+        {
+          "productId": 38,
+          "quantity": 3,
+          "des": "asasasassas"
+        },
+        {
+          "productId": 42,
+          "quantity": 4,
+          "des": "asasasassas"
+        }
+      ],
+      "id": 2
     }
   ],
   "products": [

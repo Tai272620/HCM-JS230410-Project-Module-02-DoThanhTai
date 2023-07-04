@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
@@ -6,15 +6,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userLoginActions } from "@stores/slices/userLogin.slice"
 
 export default function Navbar() {
+    const [isLogin, checkIslogin] = useState(() => localStorage.getItem("token") || null)
+    
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userLoginStore = useSelector(store => store.userLoginStore)
 
     useEffect(() => {
         dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
-    },[])
+    }, [])
 
-    // console.log(userLoginStore.userInfo)
     return (
         <header className="header">
 
@@ -51,7 +52,10 @@ export default function Navbar() {
                 <div id="menu-btn" className="fas fa-bars"></div>
                 <div id="search-btn" className="fas fa-search"></div>
                 <div id="cart-btn" className="fas fa-shopping-cart" onClick={() => navigate("/cart")}></div>
-                <div id="login-btn" className="fas fa-user" onClick={() => navigate("/login")}></div>
+                <div id="login-btn" className="fas fa-user" onClick={() => navigate("/login")} style={isLogin !== null ? {display:"none"} : {}}></div>
+                <span class="material-symbols-outlined" style={isLogin == null ? {display:"none"} : {}}>
+                    logout
+                </span>
             </div>
         </header>
     )
