@@ -24,7 +24,6 @@ function App() {
           <Route path="register" element={LazyLoad(() => import("@pages/Registers/Register"))()} />
           <Route path="cart" element={LazyLoad(() => import("@pages/Carts/Cart"))()} />
           <Route path="menu/:type" element={LazyLoad(() => import("@pages/Menus/Menu"))()}>
-
           </Route>
         </Routes>
       </div>

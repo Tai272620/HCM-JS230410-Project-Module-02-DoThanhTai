@@ -9,7 +9,26 @@
       "lastName": "Hương",
       "email": "thuhuong@gmail.com",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623",
-      "carts": []
+      "carts": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "des": "hello",
+          "userId": 1,
+          "url": "../image/combo/combo_01.jpg",
+          "name": "King Jr Meal 1",
+          "price": 57500
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "des": "hello",
+          "userId": 1,
+          "url": "../image/combo/combo_02.jpg",
+          "name": "King Jr Meal 2",
+          "price": 77500
+        }
+      ]
     },
     {
       "id": 1,
@@ -54,308 +73,280 @@
       "id": 1,
       "name": "King Jr Meal 1",
       "url": "../image/combo/combo_01.jpg",
-      "price": 10,
+      "price": 57500,
       "type": "combo"
     },
     {
       "id": 2,
       "name": "King Jr Meal 2",
       "url": "../image/combo/combo_02.jpg",
-      "price": 10,
+      "price": 77500,
       "type": "combo"
     },
     {
       "id": 3,
       "name": "King Jr Meal 3",
       "url": "../image/combo/combo_03.jpg",
-      "price": 10,
+      "price": 97000,
       "type": "combo"
     },
     {
       "id": 4,
       "name": "Hello Summer 1",
       "url": "../image/combo/combo_04.jpg",
-      "price": 10,
+      "price": 174500,
       "type": "combo"
     },
     {
       "id": 5,
       "name": "Hello Summer 2",
       "url": "../image/combo/combo_05.jpg",
-      "price": 10,
+      "price": 260000,
       "type": "combo"
     },
     {
       "id": 6,
       "name": "Hello Summer 3",
       "url": "../image/combo/combo_06.jpg",
-      "price": 10,
+      "price": 109000,
       "type": "combo"
     },
     {
       "id": 7,
       "name": "Combo Carrot Burger",
       "url": "../image/combo/combo_07.jpg",
-      "price": 10,
+      "price": 109000,
       "type": "combo"
     },
     {
       "id": 8,
       "name": "Combo Extreme Cheesy Whopper",
       "url": "../image/combo/combo_08.jpg",
-      "price": 10,
+      "price": 93000,
       "type": "combo"
     },
     {
       "id": 9,
       "name": "Tropical Seafood Pizza",
       "url": "../image/pizza/Pizza_01.jpg",
-      "price": 10,
+      "price": 129000,
       "type": "pizza"
     },
     {
       "id": 10,
       "name": "Seafood Pizza with Spicy Sauce",
       "url": "../image/pizza/Pizza_02.jpg",
-      "price": 10,
+      "price": 129000,
       "type": "pizza"
     },
     {
       "id": 11,
       "name": "Pizza Shrimp Grilled Pepper",
       "url": "../image/pizza/Pizza_03.jpg",
-      "price": 10,
+      "price": 129000,
       "type": "pizza"
     },
     {
       "id": 12,
       "name": "Pizza Beef And Seafood",
       "url": "../image/pizza/Pizza_04.jpg",
-      "price": 10,
+      "price": 129000,
       "type": "pizza"
     },
     {
       "id": 13,
-      "name": "Pizza Beef And Seafood",
-      "url": "../image/pizza/Pizza_04.jpg",
-      "price": 10,
-      "type": "pizza"
+      "name": "Extreme Cheese Whopper JR",
+      "url": "../image/burger/burger_01.jpg",
+      "price": 63500,
+      "type": "burger"
     },
     {
       "id": 14,
-      "name": "Pizza Beef And Seafood",
-      "url": "../image/pizza/Pizza_04.jpg",
-      "price": 10,
-      "type": "pizza"
+      "name": "Whopper JR",
+      "url": "../image/burger/burger_02.jpg",
+      "price": 54000,
+      "type": "burger"
     },
     {
       "id": 15,
-      "name": "Pizza Beef And Seafood",
-      "url": "../image/pizza/Pizza_04.jpg",
-      "price": 10,
-      "type": "pizza"
+      "name": "Cheese Burger",
+      "url": "../image/burger/burger_03.jpg",
+      "price": 48000,
+      "type": "burger"
     },
     {
       "id": 16,
-      "name": "Pizza Beef And Seafood",
-      "url": "../image/pizza/Pizza_04.jpg",
-      "price": 10,
-      "type": "pizza"
+      "name": "Fish Burger",
+      "url": "../image/burger/burger_04.jpg",
+      "price": 48000,
+      "type": "burger"
     },
     {
       "id": 17,
-      "name": "Extreme Cheese Whopper JR",
-      "url": "../image/burger/burger_01.jpg",
-      "price": 10,
+      "name": "Grilled Onion Burger",
+      "url": "../image/burger/burger_05.jpg",
+      "price": 50000,
       "type": "burger"
     },
     {
       "id": 18,
-      "name": "Whopper JR",
-      "url": "../image/burger/burger_02.jpg",
-      "price": 10,
+      "name": "BBQ Chicken Cheese Burger",
+      "url": "../image/burger/burger_06.jpg",
+      "price": 48000,
       "type": "burger"
     },
     {
       "id": 19,
-      "name": "Whopper Burger",
-      "url": "../image/burger/burger_03.jpg",
-      "price": 10,
+      "name": "Spicy Tendercrisp Burger",
+      "url": "../image/burger/burger_07.jpg",
+      "price": 77500,
       "type": "burger"
     },
     {
       "id": 20,
-      "name": "Fish Burger",
-      "url": "../image/burger/burger_04.jpg",
-      "price": 10,
+      "name": "Tendergrill Burger",
+      "url": "../image/burger/burger_08.jpg",
+      "price": 77500,
       "type": "burger"
     },
     {
       "id": 21,
-      "name": "Grilled Onion Burger",
-      "url": "../image/burger/burger_05.jpg",
-      "price": 10,
-      "type": "burger"
+      "name": "Chicken Crispy",
+      "url": "../image/chicken/chicken_01.jpg",
+      "price": 44000,
+      "type": "chicken"
     },
     {
       "id": 22,
-      "name": "BBQ Chicken Cheese Burger",
-      "url": "../image/burger/burger_06.jpg",
-      "price": 10,
-      "type": "burger"
+      "name": "Mix Wing 4pcs",
+      "url": "../image/chicken/chicken_02.jpg",
+      "price": 87500,
+      "type": "chicken"
     },
     {
       "id": 23,
-      "name": "Spicy Tendercrisp Burger",
-      "url": "../image/burger/burger_07.jpg",
-      "price": 10,
-      "type": "burger"
+      "name": "Mix Wing 6pcs",
+      "url": "../image/chicken/chicken_03.jpg",
+      "price": 130500,
+      "type": "chicken"
     },
     {
       "id": 24,
-      "name": "Tendergrill Burger",
-      "url": "../image/burger/burger_08.jpg",
-      "price": 10,
-      "type": "burger"
+      "name": "Mix Wing 2pcs",
+      "url": "../image/chicken/chicken_04.jpg",
+      "price": 44000,
+      "type": "chicken"
     },
     {
       "id": 25,
-      "name": "Chicken Crispy",
-      "url": "../image/chicken/chicken_01.jpg",
-      "price": 10,
+      "name": "Chicken Flamin",
+      "url": "../image/chicken/chicken_05.jpg",
+      "price": 44000,
       "type": "chicken"
     },
     {
       "id": 26,
-      "name": "Mix Wing 4pcs",
-      "url": "../image/chicken/chicken_02.jpg",
-      "price": 10,
+      "name": "Chicken BBQ",
+      "url": "../image/chicken/chicken_06.jpg",
+      "price": 44000,
       "type": "chicken"
     },
     {
       "id": 27,
-      "name": "Mix Wing 6pcs",
-      "url": "../image/chicken/chicken_03.jpg",
-      "price": 10,
+      "name": "Combo Chicken Flamin 2PCS",
+      "url": "../image/chicken/chicken_07.jpg",
+      "price": 116500,
       "type": "chicken"
     },
     {
       "id": 28,
-      "name": "Mix Wing 2pcs",
-      "url": "../image/chicken/chicken_04.jpg",
-      "price": 10,
+      "name": "Combo Chicken BBQ 2PCS",
+      "url": "../image/chicken/chicken_08.jpg",
+      "price": 116500,
       "type": "chicken"
     },
     {
       "id": 29,
-      "name": "Chicken Flamin",
-      "url": "../image/chicken/chicken_05.jpg",
-      "price": 10,
-      "type": "chicken"
+      "name": "BBQ Chicken Wing Rice",
+      "url": "../image/dinner/dinner_01.jpg",
+      "price": 57500,
+      "type": "dinner"
     },
     {
       "id": 30,
-      "name": "Chicken BBQ",
-      "url": "../image/chicken/chicken_06.jpg",
-      "price": 10,
-      "type": "chicken"
+      "name": "Combo Grilled Beef Rice Lemongrass Chili Sauce",
+      "url": "../image/dinner/dinner_02.jpg",
+      "price": 67500,
+      "type": "dinner"
     },
     {
       "id": 31,
-      "name": "Combo Chicken Flamin 2PCS",
-      "url": "../image/chicken/chicken_07.jpg",
-      "price": 10,
-      "type": "chicken"
+      "name": "Combo Grilled Beef Rice With BBQ Sauce",
+      "url": "../image/dinner/dinner_03.jpg",
+      "price": 67500,
+      "type": "dinner"
     },
     {
       "id": 32,
-      "name": "Combo Chicken BBQ 2PCS",
-      "url": "../image/chicken/chicken_08.jpg",
-      "price": 10,
-      "type": "chicken"
+      "name": "Combo Grilled Beef With Cheese Sauce",
+      "url": "../image/dinner/dinner_04.jpg",
+      "price": 67500,
+      "type": "dinner"
     },
     {
       "id": 33,
-      "name": "BBQ Chicken Wing Rice",
-      "url": "../image/dinner/dinner_01.jpg",
-      "price": 10,
-      "type": "dinner"
+      "name": "Minute Mad",
+      "url": "../image/drink/drink_01.jpg",
+      "price": 26500,
+      "type": "drink"
     },
     {
       "id": 34,
-      "name": "Combo Grilled Beef Rice Lemongrass Chili Sauce",
-      "url": "../image/dinner/dinner_02.jpg",
-      "price": 10,
-      "type": "dinner"
+      "name": "Milo",
+      "url": "../image/drink/drink_02.jpg",
+      "price": 26500,
+      "type": "drink"
     },
     {
       "id": 35,
-      "name": "Combo Grilled Beef Rice With BBQ Sauce",
-      "url": "../image/dinner/dinner_03.jpg",
-      "price": 10,
-      "type": "dinner"
+      "name": "Dasani",
+      "url": "../image/drink/drink_03.jpg",
+      "price": 24500,
+      "type": "drink"
     },
     {
       "id": 36,
-      "name": "Combo Grilled Beef With Cheese Sauce",
-      "url": "../image/dinner/dinner_04.jpg",
-      "price": 10,
-      "type": "dinner"
+      "name": "Nestea",
+      "url": "../image/drink/drink_04.jpg",
+      "price": 26500,
+      "type": "drink"
     },
     {
       "id": 37,
-      "name": "Minute Mad",
-      "url": "../image/drink/drink_01.jpg",
-      "price": 10,
+      "name": "Coca",
+      "url": "../image/drink/drink_05.jpg",
+      "price": 24500,
       "type": "drink"
     },
     {
       "id": 38,
-      "name": "Milo",
-      "url": "../image/drink/drink_02.jpg",
-      "price": 10,
+      "name": "Fanta",
+      "url": "../image/drink/drink_06.jpg",
+      "price": 24500,
       "type": "drink"
     },
     {
       "id": 39,
-      "name": "Dasani",
-      "url": "../image/drink/drink_03.jpg",
-      "price": 10,
+      "name": "Sprite",
+      "url": "../image/drink/drink_07.jpg",
+      "price": 24500,
       "type": "drink"
     },
     {
       "id": 40,
-      "name": "Nestea",
-      "url": "../image/drink/drink_04.jpg",
-      "price": 10,
-      "type": "drink"
-    },
-    {
-      "id": 41,
-      "name": "Coca",
-      "url": "../image/drink/drink_05.jpg",
-      "price": 10,
-      "type": "drink"
-    },
-    {
-      "id": 42,
-      "name": "Fanta",
-      "url": "../image/drink/drink_06.jpg",
-      "price": 10,
-      "type": "drink"
-    },
-    {
-      "id": 43,
-      "name": "Sprite",
-      "url": "../image/drink/drink_07.jpg",
-      "price": 10,
-      "type": "drink"
-    },
-    {
-      "id": 44,
       "name": "Coke Light",
       "url": "../image/drink/drink_08.jpg",
-      "price": 10,
+      "price": 26500,
       "type": "drink"
     }
   ]

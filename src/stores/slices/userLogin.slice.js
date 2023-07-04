@@ -46,20 +46,6 @@ const updateCart = createAsyncThunk(
     }
 )
 
-const deleteProductFromCart = createAsyncThunk(
-    "deleteProductFromCart",
-    async ({ userId, productId }) => {
-        try {
-            // Gửi yêu cầu DELETE để xóa sản phẩm từ giỏ hàng của người dùng
-            const response = await axios.delete(`${process.env.REACT_APP_SERVER_JSON}users/${userId}/carts/${productId}`
-            );
-            return response.data; // Trả về dữ liệu từ phản hồi
-        } catch (error) {
-            throw new Error("Lỗi khi xóa sản phẩm khỏi giỏ hàng");
-        }
-    }
-);
-
 function createToken(userObj, privateKey) {
     return CryptoJS.AES.encrypt(JSON.stringify(userObj), privateKey).toString();
 }
@@ -86,6 +72,11 @@ const userLoginSlice = createSlice(
             userInfor: null
         },
         reducers: {
+            logOut: (state, action) => {
+                return {
+                    ...state, userInfor: null
+                }
+            }
         },
         extraReducers: (builder) => {
             // login
@@ -120,13 +111,9 @@ const userLoginSlice = createSlice(
             });
             // update cart
             builder.addCase(updateCart.fulfilled, (state, action) => {
+                // console.log(action.payload)
                 state.userInfor = action.payload
                 localStorage.removeItem("carts")
-            });
-            // delete product from cart
-            builder.addCase(deleteProductFromCart.fulfilled, (state, action) => {
-                console.log(action.payload)
-                state.userInfor = action.payload
             });
             //register
             builder.addCase(register.fulfilled, (state, action) => {
@@ -173,7 +160,6 @@ export const userLoginActions = {
     login,
     checkTokenLocal,
     updateCart,
-    deleteProductFromCart,
     register,
 
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./FoodModal.scss";
-import { convertToUSD } from '@mieuteacher/meomeojs';
+import { convertToVND } from '@mieuteacher/meomeojs';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginActions } from '@stores/slices/userLogin.slice';
 
@@ -116,7 +116,7 @@ function FoodModal({ food }) {
               </div>
 
               <div>
-                <span style={{ fontSize: "18px" }}>{convertToUSD(food.price * quantity)}</span>
+                <span style={{ fontSize: "18px" }}>{convertToVND(food.price * quantity)}</span>
               </div>
 
             </div>
@@ -125,8 +125,11 @@ function FoodModal({ food }) {
               addToCart({
                 productId: food.id,
                 quantity: quantity,
-                des: "asasasassas",
-                userId: userLoginStore.userInfor.id
+                des: "hello",
+                userId: userLoginStore.userInfor.id,
+                url: food.url,
+                name: food.name,
+                price: food.price
               })
             }} className='addToCart-btn'>
               Add to cart

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Menu.scss";
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertToUSD, randomId } from '@mieuteacher/meomeojs';
+import { convertToVND, randomId } from '@mieuteacher/meomeojs';
 import { productActions } from '../../stores/slices/product.slice';
 import { userLoginActions } from "@stores/slices/userLogin.slice"
 import FoodModal from '../../components/Modals/FoodModal';
@@ -30,22 +30,22 @@ export default function Menu() {
     <div className="box-container">
 
         {productStore.listProducts?.map((food) =>
-            <div class="box" key={randomId()}>
-                <a href="#" class="fas fa-heart"></a>
-                <div class="image">
+            <div className="box" key={randomId()}>
+                <a href="#" className="fas fa-heart"></a>
+                <div className="image">
                     <FoodModal food={food}></FoodModal>
                 </div>
-                <div class="content">
+                <div className="content">
                     <h5>{food.name}</h5>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                         <span> (50) </span>
                     </div>
-                    <div class="price">{convertToUSD(food.price)} <span>$50.00</span></div>
+                    <div className="price"><span>{convertToVND(food.price)}</span></div>
                     {/* <a class="btn">add to cart</a> */}
                 </div>
             </div>

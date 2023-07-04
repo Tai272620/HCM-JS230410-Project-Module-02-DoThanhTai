@@ -15,14 +15,12 @@ export default function CartItem({ food, setSubTotal, cartData, setCartData }) {
     }, [])
 
     function handleDeleteProduct(productId) {
-        console.log(productId);
 
-        let carts = userLoginStore.userInfor.carts
-        // console.log(carts);
+        let carts = userLoginStore.userInfor.carts;
 
-        let updatedCart = carts.filter((product) => product.productId !== productId)
+        let updatedCart = carts.filter((product) => product.productId !== productId);
 
-        // console.log(updatedCart);
+        setCartData(updatedCart);
 
         dispatch(userLoginActions.updateCart(
             {
@@ -34,6 +32,36 @@ export default function CartItem({ food, setSubTotal, cartData, setCartData }) {
         ))
     }
 
+    function handleChangeQuantityProduct(productCart) {
+        let updatedCart = cartData.map((product) => {
+            if (product.productId === productCart.productId) {
+                return productCart;
+            } else {
+                return product;
+            }
+        });
+
+        setCartData(updatedCart);
+
+        // Tính tổng giá trị mới
+        let foodSubTotal = updatedCart.reduce((total, food) => {
+            return total + food.price * food.quantity;
+        }, 0);
+
+        // Cập nhật tổng giá trị
+        setSubTotal(foodSubTotal);
+
+        dispatch(
+            userLoginActions.updateCart({
+                userId: userLoginStore.userInfor.id,
+                carts: {
+                    carts: updatedCart,
+                },
+            })
+        );
+    }
+
+
     return (
         <div className="box" key={randomId()}>
             <i className="fas fa-times" onClick={() => handleDeleteProduct(food.productId)}></i>
@@ -41,24 +69,44 @@ export default function CartItem({ food, setSubTotal, cartData, setCartData }) {
             <div className="content">
                 <h3>{food.name}</h3>
                 <span> quantity : </span>
-                <input type="number" name="" defaultValue={quantity} min={1}
-                    onChange={e => {
-                        const newQuantity = parseInt(e.target.value, 10);
-                        setQuantity(newQuantity);
-
-                        // Gọi hàm callback để cập nhật quantity trong cartData
-                        const updatedCartData = cartData.map(item => {
-                            if (item.id === food.id) {
-                                return { ...item, quantity: newQuantity };
+                <div className='quantity-container'>
+                    <div>
+                        <button onClick={() => {
+                            if (quantity > 1) {
+                                setQuantity(quantity - 1)
+                                handleChangeQuantityProduct(
+                                    {
+                                        ...food,
+                                        quantity: quantity - 1
+                                    }
+                                )
                             }
-                            return item;
-                        });
-                        setCartData(updatedCartData);
-                    }}
-                />
+                        }}>
+                            <span className="material-symbols-outlined">
+                                remove
+                            </span>
+                        </button>
+
+                        <span className='quantity' style={{ fontSize: "18px" }}>{quantity}</span>
+
+                        <button onClick={() => {
+                            setQuantity(quantity + 1)
+                            handleChangeQuantityProduct(
+                                {
+                                    ...food,
+                                    quantity: quantity + 1
+                                }
+                            )
+                        }}>
+                            <span className="material-symbols-outlined">
+                                add
+                            </span>
+                        </button>
+                    </div>
+                </div>
                 <br />
                 <span> price : </span>
-                <span className="price"> {convertToUSD(food.price * quantity)} </span>
+                <span className="price"> {convertToUSD(food.price)} </span>
             </div>
         </div>
     )

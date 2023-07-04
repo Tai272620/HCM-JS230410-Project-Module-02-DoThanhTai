@@ -6,11 +6,34 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userLoginActions } from "@stores/slices/userLogin.slice"
 
 export default function Navbar() {
-    const [isLogin, checkIslogin] = useState(() => localStorage.getItem("token") || null)
-    
+    const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null)
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userLoginStore = useSelector(store => store.userLoginStore)
+
+    useEffect(() => {
+        checkIsLogin();
+    }, []);
+
+    function checkIsLogin() {
+        const token = localStorage.getItem("token");
+        setIsLogin(token);
+    }
+
+    const handleLogout = () => {
+        if (window.confirm("Bạn có muốn đăng xuất không?")) {
+            localStorage.removeItem("token");
+            dispatch(userLoginActions.logOut());
+            navigate("/login");
+        }
+    };
+
+    useEffect(() => {
+        checkIsLogin();
+    }, [userLoginStore]); // Theo dõi thay đổi của userLoginStore để cập nhật isLogin
+
+
 
     useEffect(() => {
         dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
@@ -36,12 +59,12 @@ export default function Navbar() {
                         Menu
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <Link to="/menu/combo"><a className="dropdown-item">Combo</a></Link>
-                        <Link to="/menu/pizza"><a className="dropdown-item">Pizza</a></Link>
-                        <Link to="/menu/burger"><a className="dropdown-item">Burger</a></Link>
-                        <Link to="/menu/chicken"><a className="dropdown-item">Chicken</a></Link>
-                        <Link to="/menu/dinner"><a className="dropdown-item">Dinner</a></Link>
-                        <Link to="/menu/drink"><a className="dropdown-item">Drink</a></Link>
+                        <Link to="/menu/combo"><span className="dropdown-item">Combo</span></Link>
+                        <Link to="/menu/pizza"><span className="dropdown-item">Pizza</span></Link>
+                        <Link to="/menu/burger"><span className="dropdown-item">Burger</span></Link>
+                        <Link to="/menu/chicken"><span className="dropdown-item">Chicken</span></Link>
+                        <Link to="/menu/dinner"><span className="dropdown-item">Dinner</span></Link>
+                        <Link to="/menu/drink"><span className="dropdown-item">Drink</span></Link>
                     </ul>
                 </div>
                 <a href="#order">Order</a>
@@ -52,10 +75,23 @@ export default function Navbar() {
                 <div id="menu-btn" className="fas fa-bars"></div>
                 <div id="search-btn" className="fas fa-search"></div>
                 <div id="cart-btn" className="fas fa-shopping-cart" onClick={() => navigate("/cart")}></div>
-                <div id="login-btn" className="fas fa-user" onClick={() => navigate("/login")} style={isLogin !== null ? {display:"none"} : {}}></div>
-                <span class="material-symbols-outlined" style={isLogin == null ? {display:"none"} : {}}>
-                    logout
-                </span>
+                {isLogin ? (
+                    // Nút đăng xuất
+                    <div
+                        id="logout-btn"
+                        className="fas fa-sign-out-alt"
+                        onClick={handleLogout}
+                    ></div>
+                ) : (
+                    // Nút đăng nhập
+                    <div
+                        id="login-btn"
+                        className="fas fa-user"
+                        onClick={() => {
+                            navigate("/login");
+                        }}
+                    ></div>
+                )}
             </div>
         </header>
     )
