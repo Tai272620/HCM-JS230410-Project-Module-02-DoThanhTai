@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import LazyLoad from './LazyLoad'
 import Navbar from '@components/Navbars/Navbar'
 import Footer from './components/Footers/Footer';
+import SearchModal from './components/Modals/SearchModal';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <div className='footer-container'>
         <div className="footer-contents">
           <Footer />
+          <SearchModal />
         </div>
       </div>
     </div>

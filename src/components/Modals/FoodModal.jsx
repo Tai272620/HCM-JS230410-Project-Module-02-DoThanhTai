@@ -117,7 +117,7 @@ function FoodModal({ food }) {
   return (
     <div >
       <Button variant="light" onClick={handleShow} className='detail-btn'>
-        <img src={food.url} alt="" />
+        <img src={food.url} alt="" style={{width:"150px"}}/>
       </Button>
 
       <Modal show={show} onHide={handleClose} className='modal-container' size='lg' transitionDuration={1000}>
@@ -125,7 +125,7 @@ function FoodModal({ food }) {
         </Modal.Header>
         <Modal.Body className='product-container'>
           <div className='product-img'>
-            <img src={food.url} alt="" />
+            <img src={food.url} alt=""/>
           </div>
           <div className="product-detail">
             <h5>{food.name}</h5>

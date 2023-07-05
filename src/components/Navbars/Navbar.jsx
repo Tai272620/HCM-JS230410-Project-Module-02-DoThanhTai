@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLoginActions } from "@stores/slices/userLogin.slice"
+import SearchModal from '@components/Modals/SearchModal';
 
 export default function Navbar() {
     const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null)
@@ -73,7 +74,8 @@ export default function Navbar() {
 
             <div className="icons">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                <div id="search-btn" className="fas fa-search"></div>
+                {/* <div id="search-btn" className="fas fa-search"></div> */}
+                <SearchModal />
                 <div id="cart-btn" className="fas fa-shopping-cart" onClick={() => navigate("/cart")}></div>
                 {isLogin ? (
                     // Nút đăng xuất

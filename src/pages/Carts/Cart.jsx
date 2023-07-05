@@ -9,7 +9,6 @@ export default function Cart() {
 
     const [cartsLocal, setCartsLocal] = useState(() => JSON.parse(localStorage.getItem("carts")));
 
-
     const userLoginStore = useSelector(store => store.userLoginStore)
     const [cartData, setCartData] = useState(userLoginStore.userInfor?.carts || []);
 
