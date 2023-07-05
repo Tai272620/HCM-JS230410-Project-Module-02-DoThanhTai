@@ -11,31 +11,25 @@
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623",
       "carts": [
         {
-          "productId": 1,
+          "productId": 19,
           "quantity": 1,
-          "des": "hello",
-          "userId": 1,
-          "url": "../image/combo/combo_01.jpg",
-          "name": "King Jr Meal 1",
-          "price": 57500
-        },
-        {
-          "productId": 2,
-          "quantity": 1,
-          "des": "hello",
-          "userId": 1,
-          "url": "../image/combo/combo_02.jpg",
-          "name": "King Jr Meal 2",
+          "url": "../image/burger/burger_07.jpg",
+          "name": "Spicy Tendercrisp Burger",
           "price": 77500
         },
         {
-          "productId": 21,
+          "productId": 20,
           "quantity": 1,
-          "des": "hello",
-          "userId": 1,
-          "url": "../image/chicken/chicken_01.jpg",
-          "name": "Chicken Crispy",
-          "price": 44000
+          "url": "../image/burger/burger_08.jpg",
+          "name": "Tendergrill Burger",
+          "price": 77500
+        },
+        {
+          "productId": 34,
+          "quantity": 1,
+          "url": "../image/drink/drink_02.jpg",
+          "name": "Milo",
+          "price": 26500
         }
       ]
     },

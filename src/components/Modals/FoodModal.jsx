@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./FoodModal.scss";
@@ -8,7 +8,30 @@ import { userLoginActions } from '@stores/slices/userLogin.slice';
 import toast, { Toaster } from 'react-hot-toast';
 
 function FoodModal({ food }) {
+  const modalRef = useRef(null);
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const handleModalEnter = () => {
+      if (modalRef.current) {
+        modalRef.current.classList.add('modal-fade-enter');
+      }
+    };
+
+    const handleModalExit = () => {
+      if (modalRef.current) {
+        modalRef.current.classList.remove('modal-fade-enter');
+        modalRef.current.classList.add('modal-fade-exit');
+      }
+    };
+
+    if (show) {
+      handleModalEnter();
+    } else {
+      handleModalExit();
+    }
+  }, [show]);
+
   const [quantity, setQuantity] = useState(1)
 
   const handleClose = () => setShow(false);
@@ -21,14 +44,16 @@ function FoodModal({ food }) {
     dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
   }, [])
 
-  function addToCart(buyItem) {
-    if (localStorage.getItem("token")) {
 
+  function addToCart(buyItem) {
+    console.log(buyItem);
+    
+    if (localStorage.getItem("token")) {
 
       let carts = [];
       let flag = false;
 
-      carts = userLoginStore.userInfor.carts?.slice().map(item => {
+      carts = userLoginStore.userInfor?.carts?.slice().map(item => {
         if (item.productId == buyItem.productId) {
           let temp = { ...item };
           temp.quantity += buyItem.quantity;
@@ -45,7 +70,7 @@ function FoodModal({ food }) {
 
       dispatch(userLoginActions.updateCart(
         {
-          userId: userLoginStore.userInfor.id,
+          userId: userLoginStore.userInfor?.id,
           carts: {
             carts: carts
           }
@@ -59,7 +84,7 @@ function FoodModal({ food }) {
     if (localStorage.getItem("carts")) {
       // đã từng có giỏ hàng
       let carts = JSON.parse(localStorage.getItem("carts"));
-      console.log(carts);
+      // console.log(carts);
       let flag = false;
       carts.map(item => {
         if (item.productId == buyItem.productId) {
@@ -79,6 +104,10 @@ function FoodModal({ food }) {
     }
   }
 
+  function addToCart2 (productId) {
+    console.log( productId)
+  }
+
   const notify = () => {
     toast.success('Add To Cart success!', {
       position: 'top-right',
@@ -87,11 +116,11 @@ function FoodModal({ food }) {
 
   return (
     <div >
-      <Button variant="primary" onClick={handleShow} className='detail-btn'>
+      <Button variant="light" onClick={handleShow} className='detail-btn'>
         <img src={food.url} alt="" />
       </Button>
 
-      <Modal show={show} onHide={handleClose} className='modal-container' size='lg'>
+      <Modal show={show} onHide={handleClose} className='modal-container' size='lg' transitionDuration={1000}>
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body className='product-container'>
@@ -132,8 +161,6 @@ function FoodModal({ food }) {
               addToCart({
                 productId: food.id,
                 quantity: quantity,
-                des: "hello",
-                userId: userLoginStore.userInfor.id,
                 url: food.url,
                 name: food.name,
                 price: food.price

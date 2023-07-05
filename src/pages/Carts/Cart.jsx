@@ -6,7 +6,9 @@ import CartItem from './components/CartItem';
 import { convertToVND } from '@mieuteacher/meomeojs';
 
 export default function Cart() {
-    
+
+    const [cartsLocal, setCartsLocal] = useState(() => JSON.parse(localStorage.getItem("carts")));
+
 
     const userLoginStore = useSelector(store => store.userLoginStore)
     const [cartData, setCartData] = useState(userLoginStore.userInfor?.carts || []);
@@ -40,11 +42,12 @@ export default function Cart() {
                 <h3 className="title">your products</h3>
 
                 <div className="box-container">
-                    {cartData?.map((food) =>
-                        <CartItem key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData}/>
-                    )}
-                </div>
+                    {cartsLocal ? (cartsLocal.map((food) => <CartItem key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData} />)) :
 
+                        (cartData?.map((food) =>
+                            <CartItem key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData} />
+                        ))}
+                </div>
             </div>
 
             <div className="cart-total">
