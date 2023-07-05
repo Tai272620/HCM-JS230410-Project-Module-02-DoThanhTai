@@ -3,11 +3,14 @@ import { userLoginActions } from '@stores/slices/userLogin.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import "./Cart.scss";
 import CartItem from './components/CartItem';
+import CartItemLocal from './components/CartItemLocal';
 import { convertToVND } from '@mieuteacher/meomeojs';
 
 export default function Cart() {
 
     const [cartsLocal, setCartsLocal] = useState(() => JSON.parse(localStorage.getItem("carts")));
+
+    const cartsLocalStore = useSelector(store => store.cartsLocalStore);
 
     const userLoginStore = useSelector(store => store.userLoginStore)
     const [cartData, setCartData] = useState(userLoginStore.userInfor?.carts || []);
@@ -32,6 +35,9 @@ export default function Cart() {
 
     const [subTotal, setSubTotal] = useState(foodSubTotal)
 
+    const foodSubTotalLocal = cartsLocalStore.reduce((total, food) => {
+        return total + food.price * food.quantity;
+    }, 0)
 
     return (
         <section className="shopping-cart-container">
@@ -41,7 +47,7 @@ export default function Cart() {
                 <h3 className="title">your products</h3>
 
                 <div className="box-container">
-                    {cartsLocal ? (cartsLocal.map((food) => <CartItem key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData} />)) :
+                    {cartsLocal ? (cartsLocalStore?.map((food) => <CartItemLocal key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData} />)) :
 
                         (cartData?.map((food) =>
                             <CartItem key={food.productId} food={food} setSubTotal={newSubTotal => setSubTotal(newSubTotal)} cartData={cartData} setCartData={setCartData} />

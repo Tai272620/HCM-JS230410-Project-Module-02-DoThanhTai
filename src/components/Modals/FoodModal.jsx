@@ -6,6 +6,7 @@ import { convertToVND } from '@mieuteacher/meomeojs';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginActions } from '@stores/slices/userLogin.slice';
 import toast, { Toaster } from 'react-hot-toast';
+import { cartsActions } from '../../stores/slices/cart.slice';
 
 function FoodModal({ food }) {
   const modalRef = useRef(null);
@@ -47,7 +48,7 @@ function FoodModal({ food }) {
 
   function addToCart(buyItem) {
     console.log(buyItem);
-    
+
     if (localStorage.getItem("token")) {
 
       let carts = [];
@@ -84,7 +85,6 @@ function FoodModal({ food }) {
     if (localStorage.getItem("carts")) {
       // đã từng có giỏ hàng
       let carts = JSON.parse(localStorage.getItem("carts"));
-      // console.log(carts);
       let flag = false;
       carts.map(item => {
         if (item.productId == buyItem.productId) {
@@ -97,15 +97,13 @@ function FoodModal({ food }) {
         carts.push(buyItem)
       }
       localStorage.setItem("carts", JSON.stringify(carts));
+
     } else {
       // chưa từng có
       let carts = [buyItem]
       localStorage.setItem("carts", JSON.stringify(carts));
-    }
-  }
 
-  function addToCart2 (productId) {
-    console.log( productId)
+    }
   }
 
   const notify = () => {
@@ -117,7 +115,7 @@ function FoodModal({ food }) {
   return (
     <div >
       <Button variant="light" onClick={handleShow} className='detail-btn'>
-        <img src={food.url} alt="" style={{width:"150px"}}/>
+        <img src={food.url} alt="" style={{ width: "150px" }} />
       </Button>
 
       <Modal show={show} onHide={handleClose} className='modal-container' size='lg' transitionDuration={1000}>
@@ -125,7 +123,7 @@ function FoodModal({ food }) {
         </Modal.Header>
         <Modal.Body className='product-container'>
           <div className='product-img'>
-            <img src={food.url} alt=""/>
+            <img src={food.url} alt="" />
           </div>
           <div className="product-detail">
             <h5>{food.name}</h5>
