@@ -27,6 +27,15 @@
           "url": "../image/combo/combo_02.jpg",
           "name": "King Jr Meal 2",
           "price": 77500
+        },
+        {
+          "productId": 21,
+          "quantity": 1,
+          "des": "hello",
+          "userId": 1,
+          "url": "../image/chicken/chicken_01.jpg",
+          "name": "Chicken Crispy",
+          "price": 44000
         }
       ]
     },

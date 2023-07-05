@@ -5,6 +5,7 @@ import "./FoodModal.scss";
 import { convertToVND } from '@mieuteacher/meomeojs';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginActions } from '@stores/slices/userLogin.slice';
+import toast, { Toaster } from 'react-hot-toast';
 
 function FoodModal({ food }) {
   const [show, setShow] = useState(false);
@@ -21,7 +22,6 @@ function FoodModal({ food }) {
   }, [])
 
   function addToCart(buyItem) {
-    console.log("da vao add");
     if (localStorage.getItem("token")) {
 
 
@@ -79,6 +79,12 @@ function FoodModal({ food }) {
     }
   }
 
+  const notify = () => {
+    toast.success('Add To Cart success!', {
+      position: 'top-right',
+    });
+  };
+
   return (
     <div >
       <Button variant="primary" onClick={handleShow} className='detail-btn'>
@@ -121,7 +127,8 @@ function FoodModal({ food }) {
 
             </div>
             <Button onClick={() => {
-              // handleClose()
+              handleClose()
+              notify()
               addToCart({
                 productId: food.id,
                 quantity: quantity,
@@ -137,7 +144,7 @@ function FoodModal({ food }) {
           </div>
         </Modal.Body>
       </Modal>
-
+      <Toaster />
     </div>
   );
 }
