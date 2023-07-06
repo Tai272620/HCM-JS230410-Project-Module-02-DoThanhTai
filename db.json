@@ -11,67 +11,32 @@
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623",
       "carts": [
         {
-          "productId": 13,
-          "quantity": 3,
-          "url": "../image/burger/burger_01.jpg",
-          "name": "Extreme Cheese Whopper JR",
-          "price": 63500
-        },
-        {
-          "productId": 21,
-          "quantity": 4,
-          "url": "../image/chicken/chicken_01.jpg",
-          "name": "Chicken Crispy",
-          "price": 44000
-        },
-        {
-          "productId": 22,
-          "quantity": 1,
-          "url": "../image/chicken/chicken_02.jpg",
-          "name": "Mix Wing 4pcs",
-          "price": 87500
-        },
-        {
-          "productId": 27,
-          "quantity": 5,
-          "url": "../image/chicken/chicken_07.jpg",
-          "name": "Combo Chicken Flamin 2PCS",
-          "price": 116500
-        },
-        {
-          "productId": 19,
-          "quantity": 1,
-          "url": "../image/burger/burger_07.jpg",
-          "name": "Spicy Tendercrisp Burger",
-          "price": 77500
-        },
-        {
-          "productId": 20,
-          "quantity": 1,
-          "url": "../image/burger/burger_08.jpg",
-          "name": "Tendergrill Burger",
-          "price": 77500
-        },
-        {
-          "productId": 34,
-          "quantity": 1,
-          "url": "../image/drink/drink_02.jpg",
-          "name": "Milo",
-          "price": 26500
-        },
-        {
-          "productId": 7,
+          "productId": 2,
           "quantity": 2,
-          "url": "../image/combo/combo_07.jpg",
-          "name": "Combo Carrot Burger",
-          "price": 109000
+          "url": "../image/combo/combo_02.jpg",
+          "name": "King Jr Meal 2",
+          "price": 77500
         },
         {
-          "productId": 37,
+          "productId": 30,
+          "quantity": 5,
+          "url": "../image/dinner/dinner_02.jpg",
+          "name": "Combo Grilled Beef Rice Lemongrass Chili Sauce",
+          "price": 67500
+        },
+        {
+          "productId": 35,
           "quantity": 1,
-          "url": "../image/drink/drink_05.jpg",
-          "name": "Coca",
+          "url": "../image/drink/drink_03.jpg",
+          "name": "Dasani",
           "price": 24500
+        },
+        {
+          "productId": 36,
+          "quantity": 1,
+          "url": "../image/drink/drink_04.jpg",
+          "name": "Nestea",
+          "price": 26500
         }
       ]
     },
@@ -111,6 +76,32 @@
         }
       ],
       "id": 2
+    },
+    {
+      "userName": "tai",
+      "email": "tai26967@gmail.com",
+      "password": "tai",
+      "isAdmin": false,
+      "firstName": "New",
+      "lastName": "Member",
+      "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
+      "carts": [
+        {
+          "productId": 2,
+          "quantity": 1,
+          "url": "../image/combo/combo_02.jpg",
+          "name": "King Jr Meal 2",
+          "price": 77500
+        },
+        {
+          "productId": 4,
+          "quantity": 2,
+          "url": "../image/combo/combo_04.jpg",
+          "name": "Hello Summer 1",
+          "price": 174500
+        }
+      ],
+      "id": 3
     }
   ],
   "products": [

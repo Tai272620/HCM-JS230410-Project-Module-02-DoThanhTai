@@ -5,6 +5,7 @@ import "./Cart.scss";
 import CartItem from './components/CartItem';
 import CartItemLocal from './components/CartItemLocal';
 import { convertToVND } from '@mieuteacher/meomeojs';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
 
@@ -59,7 +60,7 @@ export default function Cart() {
                 <h3 className="title"> cart total </h3>
                 <div className="box">
                     <h3 className="subtotal"> subtotal : <span>{convertToVND(subTotal)}</span> </h3>
-                    <a href="#" className="btn">proceed to checkout</a>
+                    <Link to="/checkout" className="btn">proceed to checkout</Link>
                 </div>
             </div>
         </section>

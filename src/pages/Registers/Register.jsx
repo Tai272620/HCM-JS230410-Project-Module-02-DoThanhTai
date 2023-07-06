@@ -62,7 +62,6 @@ export default function Register() {
                         carts: []
                     }
                 ))
-
             }}>
                 <h1>Register</h1>
                 <div className='form-control'>
