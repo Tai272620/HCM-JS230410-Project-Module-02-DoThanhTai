@@ -60,7 +60,9 @@ export default function Register() {
                         firstName: "New",
                         lastName: "Member",
                         avatar: "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
-                        carts: []
+                        carts: [],
+                        receipts: [],
+                        information: {}
                     }
                 ))
             }}>

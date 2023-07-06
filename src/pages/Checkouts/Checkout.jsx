@@ -10,15 +10,21 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { convertToVND, randomId } from "@mieuteacher/meomeojs";
 import { userLoginActions } from "../../stores/slices/userLogin.slice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Checkout() {
 
+  const [userName, setUserName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const userLoginStore = useSelector(store => store.userLoginStore);
 
@@ -144,11 +150,13 @@ export default function Checkout() {
                         </a>
 
                         <form className="mt-4">
+                          <MDBInput className="mb-4" label="User Name" type="text" size="lg"
+                            placeholder="User Name" contrast value={userName} onChange={(e) => setUserName(e.target.value)} />
                           <MDBInput className="mb-4" label="Phone Number" type="text" size="lg"
-                            placeholder="Phone Number" contrast />
+                            placeholder="Phone Number" contrast value={phone} onChange={(e) => setPhone(e.target.value)} />
 
                           <MDBInput className="mb-4" label="Address" type="text" size="lg"
-                            minLength="19" maxLength="19" placeholder="Address" contrast />
+                            minLength="19" maxLength="19" placeholder="Address" contrast value={address} onChange={(e) => setAddress(e.target.value)} />
                         </form>
 
                         <hr />
@@ -171,10 +179,31 @@ export default function Checkout() {
                         <MDBBtn color="info" block size="lg">
                           <div className="d-flex justify-content-between">
                             <span>{convertToVND(cartsSubTotal + 20000)}</span>
-                            <Link to="/purchase">
+                            <span onClick={() => {
+                              if (userName !== "" && phone !== "" && address !== "") {
+                                navigate("/purchase")
+                                dispatch(userLoginActions.checkout(
+                                  {
+                                    userId: userLoginStore.userInfor?.id,
+                                    carts: {
+                                      carts: [],
+                                      receipts: [...userLoginStore.userInfor.receipts, carts],
+                                      information: {
+                                        userName,
+                                        phone,
+                                        address
+                                      }
+                                    }
+                                  }
+                                ))
+                              } else {
+                                alert("Please enter user information")
+                              }
+
+                            }}>
                               Checkout{" "}
                               <i className="fas fa-long-arrow-alt-right ms-2"></i>
-                            </Link>
+                            </span>
                           </div>
                         </MDBBtn>
                       </MDBCardBody>

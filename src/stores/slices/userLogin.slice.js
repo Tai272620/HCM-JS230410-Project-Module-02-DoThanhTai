@@ -46,6 +46,14 @@ const updateCart = createAsyncThunk(
     }
 )
 
+const checkout = createAsyncThunk(
+    "checkout",
+    async (dataObj) => {
+        let res = await axios.patch(process.env.REACT_APP_SERVER_JSON + 'users/' + dataObj.userId, dataObj.carts, dataObj.receipts, dataObj.information);
+        return res.data
+    }
+)
+
 function createToken(userObj, privateKey) {
     return CryptoJS.AES.encrypt(JSON.stringify(userObj), privateKey).toString();
 }
@@ -115,6 +123,12 @@ const userLoginSlice = createSlice(
                 state.userInfor = action.payload
                 localStorage.removeItem("carts")
             });
+            // checkout
+            builder.addCase(checkout.fulfilled, (state, action) => {
+                // console.log(action.payload)
+                state.userInfor = action.payload
+                localStorage.removeItem("carts")
+            });
             //register
             builder.addCase(register.fulfilled, (state, action) => {
                 state.userInfor = action.payload;
@@ -161,6 +175,7 @@ export const userLoginActions = {
     checkTokenLocal,
     updateCart,
     register,
+    checkout
 
 }
 export default userLoginSlice.reducer;
