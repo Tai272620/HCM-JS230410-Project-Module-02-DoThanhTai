@@ -45,8 +45,6 @@ function SearchModal() {
         }, 1000));
     };
 
-    console.log(productStore.searchData)
-
     return (
         <>
 

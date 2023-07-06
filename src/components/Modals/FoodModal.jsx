@@ -39,6 +39,7 @@ function FoodModal({ food }) {
   const handleShow = () => setShow(true);
 
   const dispatch = useDispatch();
+
   const userLoginStore = useSelector(store => store.userLoginStore);
 
   useEffect(() => {
@@ -47,8 +48,7 @@ function FoodModal({ food }) {
 
 
   function addToCart(buyItem) {
-    console.log(buyItem);
-
+    
     if (localStorage.getItem("token")) {
 
       let carts = [];

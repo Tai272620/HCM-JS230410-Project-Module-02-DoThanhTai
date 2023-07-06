@@ -1,7 +1,9 @@
 import React from 'react';
 import "./Footer.scss";
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+    const navigate = useNavigate();
     return (
         <section className="footer">
 
@@ -17,21 +19,18 @@ export default function Footer() {
 
                 <div className="box">
                     <h3>our menu</h3>
-                    <a href="#"><i className="fas fa-arrow-right"></i> pizza</a>
-                    <a href="#"><i className="fas fa-arrow-right"></i> burger</a>
-                    <a href="#"><i className="fas fa-arrow-right"></i> chicken</a>
-                    <a href="#"><i className="fas fa-arrow-right"></i> pasta</a>
-                    <a href="#"><i className="fas fa-arrow-right"></i> and more...</a>
+                    <a href="#popular" onClick={() => navigate("/menu/pizza")}><i className="fas fa-arrow-right"></i> pizza</a>
+                    <a href="#popular" onClick={() => navigate("/menu/burger")}><i className="fas fa-arrow-right"></i> burger</a>
+                    <a href="#popular" onClick={() => navigate("/menu/chicken")}><i className="fas fa-arrow-right"></i> chicken</a>
+                    <a href="#popular" onClick={() => navigate("/menu/combo")}><i className="fas fa-arrow-right"></i> combo</a>
+                    <a href="#popular" onClick={() => navigate("/menu/drink")}><i className="fas fa-arrow-right"></i> drink</a>
                 </div>
 
                 <div className="box">
                     <h3>quick links</h3>
-                    <a href="#home"> <i className="fas fa-arrow-right"></i> home</a>
-                    <a href="#about"> <i className="fas fa-arrow-right"></i> about</a>
-                    <a href="#popular"> <i className="fas fa-arrow-right"></i> popular</a>
-                    <a href="#menu"> <i className="fas fa-arrow-right"></i> menu</a>
-                    <a href="#order"> <i className="fas fa-arrow-right"></i> order</a>
-                    <a href="#blogs"> <i className="fas fa-arrow-right"></i> blogs</a>
+                    <a href="#home" onClick={() => navigate("/")}> <i className="fas fa-arrow-right"></i> home</a>
+                    <a href="#about" onClick={() => navigate("/")}> <i className="fas fa-arrow-right"></i> about</a>
+                    <a href="#category" onClick={() => navigate("/")}> <i className="fas fa-arrow-right"></i> category</a>
                 </div>
 
                 <div className="box">
@@ -48,10 +47,10 @@ export default function Footer() {
                     <p>monday : 7:00am to 10:00pm</p>
                     <p>tuesday : 7:00am to 10:00pm</p>
                     <p>wednesday : 7:00am to 10:00pm</p>
+                    <p>thursday : 7:00am to 10:00pm</p>
                     <p>friday : 7:00am to 10:00pm</p>
-                    <p>saturday and sunday closed</p>
+                    <p>saturday and sunday : 7:00am to 10:00pm</p>
                 </div>
-
             </div>
 
             <div className="bottom">
@@ -63,11 +62,7 @@ export default function Footer() {
                     <a href="#" className="fab fa-linkedin"></a>
                     <a href="#" className="fab fa-pinterest"></a>
                 </div>
-
-                <div className="credit"> created <span>mr. web designer</span> | all rights reserved! </div>
-
             </div>
-
         </section>
     )
 }

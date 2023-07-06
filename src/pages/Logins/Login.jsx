@@ -41,7 +41,7 @@ export default function Login() {
                 ))
 
             }} className='login_form'>
-                <p className='form_title'>Login Form</p>
+                <p className='title'>Login Form</p>
                 {/* input User Name */}
                 <div className="form_input input-group mb-3">
                     <div className="input-group-prepend">
@@ -74,7 +74,7 @@ export default function Login() {
                         name='inputPassword'
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary login-btn">Login</button>
                 <p>Don't Have An Account? <Link to="/register">Create one</Link></p>
             </form>
         </div>

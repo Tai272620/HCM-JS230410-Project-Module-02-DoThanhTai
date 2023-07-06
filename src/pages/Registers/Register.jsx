@@ -5,6 +5,7 @@ import { userLoginActions } from '../../stores/slices/userLogin.slice';
 import Loading from '@components/Loadings/Loading'
 import axios from 'axios';
 import "./Register.scss";
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     const dispatch = useDispatch();
@@ -66,10 +67,9 @@ export default function Register() {
                     }
                 ))
             }}>
-                <h1>Register</h1>
                 <div className='form-control'>
                     <label htmlFor="">Email</label><br />
-                    <input id="valueEmail" name='inputUserEmail' type="text" placeholder="YOUR EMAIL" />
+                    <input id="valueEmail" name='inputUserEmail' type="email" placeholder="YOUR EMAIL" />
                 </div>
                 <div className='form-control'>
                     <label htmlFor="">User name</label><br />
@@ -83,8 +83,8 @@ export default function Register() {
                     <label htmlFor="">Confirm Password</label><br />
                     <input id="confirm" name='inputRePassword' type="password" placeholder="CONFIRM PASSWORD" /> <br />
                 </div>
-
-                <button type='submit'>SIGN IN</button>
+                <button type='submit' className='register-btn'>Register</button>
+                <p>Already a member <Link to="/login">Login here</Link> </p>
             </form>
         </div>
 

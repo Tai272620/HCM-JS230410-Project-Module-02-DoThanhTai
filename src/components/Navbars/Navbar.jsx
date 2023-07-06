@@ -11,7 +11,17 @@ export default function Navbar() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
+    }, [])
+
     const userLoginStore = useSelector(store => store.userLoginStore)
+
+    const cartItems = useSelector(store => store.userLoginStore.userInfor?.carts || []);
+    const cartTotalQuantity = cartItems.reduce((total, food) => {
+        return total + food.quantity
+    }, 0);
 
     useEffect(() => {
         checkIsLogin();
@@ -34,11 +44,7 @@ export default function Navbar() {
         checkIsLogin();
     }, [userLoginStore]); // Theo dõi thay đổi của userLoginStore để cập nhật isLogin
 
-
-
-    useEffect(() => {
-        dispatch(userLoginActions.checkTokenLocal(localStorage.getItem("token")))
-    }, [])
+    
 
     return (
         <header className="header">
@@ -68,7 +74,7 @@ export default function Navbar() {
                         <Link to="/menu/drink"><span className="dropdown-item">Drink</span></Link>
                     </ul>
                 </div>
-                <a href="#order">Order</a>
+                <a onClick={() => navigate("/cart")} style={{cursor:"pointer"}}>Order</a>
                 <a href="#blogs">Blogs</a>
             </nav>
 
@@ -76,7 +82,7 @@ export default function Navbar() {
                 <div id="menu-btn" className="fas fa-bars"></div>
                 <SearchModal />
                 <div id="cart-btn" className="fas fa-shopping-cart cart-btn" onClick={() => navigate("/cart")}>
-                    <span className='totalQuantity'>0</span>
+                    <span className='totalQuantity'>{cartTotalQuantity}</span>
                 </div>
                 {isLogin ? (
                     // Nút đăng xuất

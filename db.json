@@ -80,11 +80,21 @@
       "lastName": "Member",
       "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
       "carts": [],
-      "receipts": [],
+      "receipts": [
+        [
+          {
+            "productId": 34,
+            "quantity": 1,
+            "url": "../image/drink/drink_02.jpg",
+            "name": "Milo",
+            "price": 26500
+          }
+        ]
+      ],
       "information": {
-        "userName": "jack",
-        "phone": "123456",
-        "address": "Kyoto"
+        "userName": "wdas",
+        "phone": "sdadasd",
+        "address": "asdasdsa"
       },
       "id": 2
     },
@@ -123,7 +133,22 @@
       "firstName": "New",
       "lastName": "Member",
       "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
-      "carts": [],
+      "carts": [
+        {
+          "productId": 21,
+          "quantity": 1,
+          "url": "../image/chicken/chicken_01.jpg",
+          "name": "Chicken Crispy",
+          "price": 44000
+        },
+        {
+          "productId": 26,
+          "quantity": 5,
+          "url": "../image/chicken/chicken_06.jpg",
+          "name": "Chicken BBQ",
+          "price": 44000
+        }
+      ],
       "receipts": [
         [
           {
