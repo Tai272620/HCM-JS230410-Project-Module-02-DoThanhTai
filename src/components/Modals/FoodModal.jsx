@@ -109,7 +109,7 @@ function FoodModal({ food }) {
 
   const notify = () => {
     toast.success('Add To Cart success!', {
-      position: 'top-right',
+      position: 'top-center',
     });
   };
 

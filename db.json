@@ -79,7 +79,50 @@
       "firstName": "New",
       "lastName": "Member",
       "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
-      "carts": [],
+      "carts": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "url": "../image/combo/combo_01.jpg",
+          "name": "King Jr Meal 1",
+          "price": 57500
+        },
+        {
+          "productId": 2,
+          "quantity": 5,
+          "url": "../image/combo/combo_02.jpg",
+          "name": "King Jr Meal 2",
+          "price": 77500
+        },
+        {
+          "productId": 31,
+          "quantity": 6,
+          "url": "../image/dinner/dinner_03.jpg",
+          "name": "Combo Grilled Beef Rice With BBQ Sauce",
+          "price": 67500
+        },
+        {
+          "productId": 18,
+          "quantity": 1,
+          "url": "../image/burger/burger_06.jpg",
+          "name": "BBQ Chicken Cheese Burger",
+          "price": 48000
+        },
+        {
+          "productId": 3,
+          "quantity": 1,
+          "url": "../image/combo/combo_03.jpg",
+          "name": "King Jr Meal 3",
+          "price": 97000
+        },
+        {
+          "productId": 12,
+          "quantity": 1,
+          "url": "../image/pizza/Pizza_04.jpg",
+          "name": "Pizza Beef And Seafood",
+          "price": 129000
+        }
+      ],
       "receipts": [
         [
           {

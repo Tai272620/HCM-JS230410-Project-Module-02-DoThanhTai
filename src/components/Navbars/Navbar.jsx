@@ -22,6 +22,13 @@ export default function Navbar() {
     const cartTotalQuantity = cartItems.reduce((total, food) => {
         return total + food.quantity
     }, 0);
+    
+    let cartsLocal = JSON.parse(localStorage.getItem("carts")) || [];
+    console.log(cartsLocal)
+
+    const cartLocalTotalQuantity = cartsLocal.reduce((total, food) => {
+        return total + food.quantity
+    }, 0)
 
     useEffect(() => {
         checkIsLogin();
@@ -82,7 +89,7 @@ export default function Navbar() {
                 <div id="menu-btn" className="fas fa-bars"></div>
                 <SearchModal />
                 <div id="cart-btn" className="fas fa-shopping-cart cart-btn" onClick={() => navigate("/cart")}>
-                    <span className='totalQuantity'>{cartTotalQuantity}</span>
+                    <span className='totalQuantity'>{isLogin ? cartTotalQuantity : cartLocalTotalQuantity}</span>
                 </div>
                 {isLogin ? (
                     // Nút đăng xuất
