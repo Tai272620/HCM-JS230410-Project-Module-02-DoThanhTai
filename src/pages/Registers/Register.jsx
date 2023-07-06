@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { userLoginActions } from '../../stores/slices/userLogin.slice';
 import Loading from '@components/Loadings/Loading'
 import axios from 'axios';
+import "./Register.scss";
 
 export default function Register() {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function Register() {
         }
     }, [userLoginStore.userInfor])
     return (
-        <div >
+        <div className='register-container'>
             {
                 userLoginStore.loading || loadingCheck ? <Loading></Loading> : <></>
             }

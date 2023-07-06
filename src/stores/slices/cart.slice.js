@@ -35,6 +35,10 @@ const cartsSlice = createSlice({
                 });
             }
         },
+        updateCartLocal: (state, action) => {
+            console.log(action.payload)
+            return action.payload;
+        }
     },
 });
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loading from '@components/Loadings/Loading'
 import { userLoginActions } from '@stores/slices/userLogin.slice'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -74,6 +75,7 @@ export default function Login() {
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
+                <p>Don't Have An Account? <Link to="/register">Create one</Link></p>
             </form>
         </div>
     )

@@ -16,34 +16,6 @@
           "url": "../image/combo/combo_02.jpg",
           "name": "King Jr Meal 2",
           "price": 77500
-        },
-        {
-          "productId": 30,
-          "quantity": 5,
-          "url": "../image/dinner/dinner_02.jpg",
-          "name": "Combo Grilled Beef Rice Lemongrass Chili Sauce",
-          "price": 67500
-        },
-        {
-          "productId": 35,
-          "quantity": 1,
-          "url": "../image/drink/drink_03.jpg",
-          "name": "Dasani",
-          "price": 24500
-        },
-        {
-          "productId": 36,
-          "quantity": 2,
-          "url": "../image/drink/drink_04.jpg",
-          "name": "Nestea",
-          "price": 26500
-        },
-        {
-          "productId": 7,
-          "quantity": 10,
-          "url": "../image/combo/combo_07.jpg",
-          "name": "Combo Carrot Burger",
-          "price": 109000
         }
       ]
     },

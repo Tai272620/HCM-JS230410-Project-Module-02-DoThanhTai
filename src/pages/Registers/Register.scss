@@ -1,3 +1,12 @@
 .register-container {
-    font-size: 20px;
+    font-size: 25px;
+    width: 50%;
+    margin: 0 auto;
+
+    input {
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 100%;
+        padding: 8px;
+    }
 }

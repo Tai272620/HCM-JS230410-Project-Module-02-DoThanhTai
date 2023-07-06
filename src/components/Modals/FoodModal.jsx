@@ -96,13 +96,14 @@ function FoodModal({ food }) {
       if (!flag) {
         carts.push(buyItem)
       }
+      dispatch(cartsActions.updateCartLocal(carts));
       localStorage.setItem("carts", JSON.stringify(carts));
 
     } else {
       // chưa từng có
       let carts = [buyItem]
+      dispatch(cartsActions.updateCartLocal(carts));
       localStorage.setItem("carts", JSON.stringify(carts));
-
     }
   }
 

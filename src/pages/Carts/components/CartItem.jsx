@@ -22,6 +22,14 @@ export default function CartItem({ food, setSubTotal, cartData, setCartData }) {
 
         setCartData(updatedCart);
 
+         // Tính tổng giá trị mới
+         let foodSubTotal = updatedCart.reduce((total, food) => {
+            return total + food.price * food.quantity;
+        }, 0);
+
+        // Cập nhật tổng giá trị
+        setSubTotal(foodSubTotal);
+
         dispatch(userLoginActions.updateCart(
             {
                 userId: userLoginStore.userInfor.id,

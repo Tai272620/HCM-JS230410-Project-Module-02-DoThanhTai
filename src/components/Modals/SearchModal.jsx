@@ -92,16 +92,6 @@ function SearchModal() {
                         <div className='search-render'>
                             <h3>SUGGESTED PRODUCTS</h3>
                             <div className='search-food-container'>
-                                {/* {showSearch ? (productStore.searchData?.map((food) =>
-                                    <div className='food-container'>
-                                        <div className='food-image'>
-                                            <img src={food.url} alt="" />
-                                        </div>
-                                        <div className='food-infor'>
-                                            <h5>{food.name}</h5>
-                                            <p>{convertToVND(food.price)}</p>
-                                        </div>
-                                    </div>)) : (<></>)} */}
                                 {showSearch ? (productStore.searchData?.map((food) =>
                                     <div className='food-container'>
                                         <FoodModal food={food} />
