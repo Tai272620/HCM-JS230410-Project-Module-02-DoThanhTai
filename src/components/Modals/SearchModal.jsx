@@ -54,7 +54,7 @@ function SearchModal() {
                 <div id="search-btn" className="fas fa-search search-btn"></div>
             </Button>
 
-            <Modal show={show} onHide={handleClose} size='xl'>
+            <Modal show={show} onHide={handleClose} size='xl' fullscreen='xxl-down'>
                 <Modal.Header closeButton>
                     <Modal.Title>
                         <input onChange={(e) => handleChange(e)} className='input-search' type="text" placeholder='SEARCH FOOD' autoFocus />
