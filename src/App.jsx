@@ -23,6 +23,7 @@ function App() {
           <Route path="login" element={LazyLoad(() => import("@pages/Logins/Login"))()} />
           <Route path="checkout" element={LazyLoad(() => import("@pages/Checkouts/Checkout"))()} />
           <Route path="purchase" element={LazyLoad(() => import("@pages/Checkouts/Purchase"))()} />
+          <Route path="order" element={LazyLoad(() => import("@pages/Orders/Order"))()} />
           <Route path="cart" element={LazyLoad(() => import("@pages/Carts/Cart"))()} />
           <Route path="menu/:type" element={LazyLoad(() => import("@pages/Menus/Menu"))()}>
           </Route>
