@@ -60,7 +60,7 @@ export default function Cart() {
                 <h3 className="title"> cart total </h3>
                 <div className="box">
                     <h3 className="subtotal"> subtotal : <span>{convertToVND(subTotal)}</span> </h3>
-                    <Link to="/checkout" className="btn">proceed to checkout</Link>
+                    {cartsLocal ? (<Link to="/login" className="btn">proceed to checkout</Link>) : (<Link to="/checkout" className="btn">proceed to checkout</Link>)}
                 </div>
             </div>
         </section>
