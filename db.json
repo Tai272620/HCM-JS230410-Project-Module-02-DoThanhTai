@@ -114,6 +114,33 @@
         "address": "Tokyo"
       },
       "id": 3
+    },
+    {
+      "userName": "kien",
+      "email": "kien@gmail.com",
+      "password": "123",
+      "isAdmin": false,
+      "firstName": "New",
+      "lastName": "Member",
+      "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
+      "carts": [],
+      "receipts": [
+        [
+          {
+            "productId": 37,
+            "quantity": 2,
+            "url": "../image/drink/drink_05.jpg",
+            "name": "Coca",
+            "price": 24500
+          }
+        ]
+      ],
+      "information": {
+        "userName": "kien",
+        "phone": "123",
+        "address": "Ha Noi"
+      },
+      "id": 4
     }
   ],
   "products": [

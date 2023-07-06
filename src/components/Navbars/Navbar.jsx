@@ -74,9 +74,10 @@ export default function Navbar() {
 
             <div className="icons">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                {/* <div id="search-btn" className="fas fa-search"></div> */}
                 <SearchModal />
-                <div id="cart-btn" className="fas fa-shopping-cart" onClick={() => navigate("/cart")}></div>
+                <div id="cart-btn" className="fas fa-shopping-cart cart-btn" onClick={() => navigate("/cart")}>
+                    <span className='totalQuantity'>0</span>
+                </div>
                 {isLogin ? (
                     // Nút đăng xuất
                     <div
