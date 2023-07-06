@@ -14,6 +14,7 @@ export default function Cart() {
     const cartsLocalStore = useSelector(store => store.cartsLocalStore);
 
     const userLoginStore = useSelector(store => store.userLoginStore)
+
     const [cartData, setCartData] = useState(userLoginStore.userInfor?.carts || []);
 
     const dispatch = useDispatch();
@@ -57,9 +58,8 @@ export default function Cart() {
             </div>
 
             <div className="cart-total">
-                <h3 className="title"> cart total </h3>
                 <div className="box">
-                    <h3 className="subtotal"> subtotal : <span>{convertToVND(subTotal)}</span> </h3>
+                    <h3 className="subtotal"> subtotal : <span>{cartsLocal ? convertToVND(foodSubTotalLocal) : convertToVND(subTotal)}</span> </h3>
                     {cartsLocal ? (<Link to="/login" className="btn">proceed to checkout</Link>) : (<Link to="/checkout" className="btn">proceed to checkout</Link>)}
                 </div>
             </div>
