@@ -33,10 +33,17 @@
         },
         {
           "productId": 36,
-          "quantity": 1,
+          "quantity": 2,
           "url": "../image/drink/drink_04.jpg",
           "name": "Nestea",
           "price": 26500
+        },
+        {
+          "productId": 7,
+          "quantity": 10,
+          "url": "../image/combo/combo_07.jpg",
+          "name": "Combo Carrot Burger",
+          "price": 109000
         }
       ]
     },

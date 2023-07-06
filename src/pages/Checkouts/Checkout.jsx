@@ -42,6 +42,10 @@ export default function Checkout() {
     ))
   }
 
+  let cartsSubTotal = carts.reduce((total, food) => {
+    return total + food.quantity * food.price
+  }, 0)
+
   return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5 h-100">
@@ -140,48 +144,37 @@ export default function Checkout() {
                         </a>
 
                         <form className="mt-4">
-                          <MDBInput className="mb-4" label="Cardholder's Name" type="text" size="lg"
-                            placeholder="Cardholder's Name" contrast />
+                          <MDBInput className="mb-4" label="Phone Number" type="text" size="lg"
+                            placeholder="Phone Number" contrast />
 
-                          <MDBInput className="mb-4" label="Card Number" type="text" size="lg"
-                            minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
-
-                          <MDBRow className="mb-4">
-                            <MDBCol md="6">
-                              <MDBInput className="mb-4" label="Expiration" type="text" size="lg"
-                                minLength="7" maxLength="7" placeholder="MM/YYYY" contrast />
-                            </MDBCol>
-                            <MDBCol md="6">
-                              <MDBInput className="mb-4" label="Cvv" type="text" size="lg" minLength="3"
-                                maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
-                            </MDBCol>
-                          </MDBRow>
+                          <MDBInput className="mb-4" label="Address" type="text" size="lg"
+                            minLength="19" maxLength="19" placeholder="Address" contrast />
                         </form>
 
                         <hr />
 
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Subtotal</p>
-                          <p className="mb-2">$4798.00</p>
+                          <p className="mb-2">{convertToVND(cartsSubTotal)}</p>
                         </div>
 
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Shipping</p>
-                          <p className="mb-2">$20.00</p>
+                          <p className="mb-2">{convertToVND(20000)}</p>
                         </div>
 
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Total(Incl. taxes)</p>
-                          <p className="mb-2">$4818.00</p>
+                          <p className="mb-2">{convertToVND(cartsSubTotal + 20000)}</p>
                         </div>
 
                         <MDBBtn color="info" block size="lg">
                           <div className="d-flex justify-content-between">
-                            <span>$4818.00</span>
-                            <span>
+                            <span>{convertToVND(cartsSubTotal + 20000)}</span>
+                            <Link to="/purchase">
                               Checkout{" "}
                               <i className="fas fa-long-arrow-alt-right ms-2"></i>
-                            </span>
+                            </Link>
                           </div>
                         </MDBBtn>
                       </MDBCardBody>
