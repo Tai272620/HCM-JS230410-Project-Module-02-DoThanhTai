@@ -59,6 +59,8 @@ html::-webkit-scrollbar-thumb {
     width: 100%;
     max-width: $widthContent;
     height: 100%;
+    display: flex;
+    flex-direction: column; 
   }
 
   .footer-container {

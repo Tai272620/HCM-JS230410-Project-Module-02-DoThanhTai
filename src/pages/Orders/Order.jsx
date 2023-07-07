@@ -113,7 +113,7 @@ export default function Order() {
                                             </p>
                                         </div>
                                         <div className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0">Invoice Date : 22 Dec,2019</p>
+                                            <p className="text-muted mb-0">Invoice Date : </p>
                                         </div>
                                     </div>
                                     <div

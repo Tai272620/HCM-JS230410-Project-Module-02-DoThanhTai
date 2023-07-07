@@ -90,12 +90,30 @@
             "price": 116500,
             "time": "9:31 PM 6-7-2023"
           }
+        ],
+        [
+          {
+            "productId": 10,
+            "quantity": 2,
+            "url": "../image/pizza/Pizza_02.jpg",
+            "name": "Seafood Pizza with Spicy Sauce",
+            "price": 129000,
+            "time": "11:39 AM 7-7-2023"
+          },
+          {
+            "productId": 34,
+            "quantity": 1,
+            "url": "../image/drink/drink_02.jpg",
+            "name": "Milo",
+            "price": 26500,
+            "time": "11:39 AM 7-7-2023"
+          }
         ]
       ],
       "information": {
-        "userName": "sddsa",
-        "phone": "sddasd",
-        "address": "sdasas"
+        "userName": "saads",
+        "phone": "sadasda",
+        "address": "asdassad"
       },
       "id": 2
     },
@@ -204,6 +222,62 @@
         "address": "sadas"
       },
       "id": 5
+    },
+    {
+      "userName": "thanhtai",
+      "email": "thanhtai@gmail.com",
+      "password": "12345",
+      "isAdmin": false,
+      "firstName": "New",
+      "lastName": "Member",
+      "avatar": "https://i.pinimg.com/564x/c8/49/d3/c849d35b6502f1e9918b4f1d5e43f10a.jpg",
+      "carts": [],
+      "receipts": [
+        [
+          {
+            "productId": 22,
+            "quantity": 4,
+            "url": "../image/chicken/chicken_02.jpg",
+            "name": "Mix Wing 4pcs",
+            "price": 87500,
+            "time": "11:21 AM 7-7-2023"
+          },
+          {
+            "productId": 37,
+            "quantity": 3,
+            "url": "../image/drink/drink_05.jpg",
+            "name": "Coca",
+            "price": 24500,
+            "time": "11:21 AM 7-7-2023"
+          }
+        ],
+        [
+          {
+            "productId": 14,
+            "quantity": 1,
+            "url": "../image/burger/burger_02.jpg",
+            "name": "Whopper JR",
+            "price": 54000,
+            "time": "11:22 AM 7-7-2023"
+          }
+        ],
+        [
+          {
+            "productId": 15,
+            "quantity": 2,
+            "url": "../image/burger/burger_03.jpg",
+            "name": "Cheese Burger",
+            "price": 48000,
+            "time": "11:29 AM 7-7-2023"
+          }
+        ]
+      ],
+      "information": {
+        "userName": "qwdd",
+        "phone": "asasa",
+        "address": "asasas"
+      },
+      "id": 6
     }
   ],
   "products": [
