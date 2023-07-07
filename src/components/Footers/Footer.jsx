@@ -35,7 +35,7 @@ export default function Footer() {
 
                 <div className="box">
                     <h3>extra links</h3>
-                    <a href="#order" onClick={() => navigate("/order")}> <i className="fas fa-arrow-right"></i> my order</a>
+                    <a href="#order" onClick={() => navigate("/order")}> <i className="fas fa-arrow-right"></i> my orders</a>
                 </div>
 
                 <div className="box">

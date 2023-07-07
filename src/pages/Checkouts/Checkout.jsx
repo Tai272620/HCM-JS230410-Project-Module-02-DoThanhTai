@@ -193,12 +193,18 @@ export default function Checkout() {
                             <span onClick={() => {
                               if (userName !== "" && phone !== "" && address !== "") {
                                 navigate("/purchase")
+                                let updatedCart = carts.map((food) => {
+                                  return {
+                                    ...food,
+                                    time: getCurrentTime()
+                                  }
+                                })
                                 dispatch(userLoginActions.checkout(
                                   {
                                     userId: userLoginStore.userInfor?.id,
                                     carts: {
                                       carts: [],
-                                      receipts: [...userLoginStore.userInfor.receipts, carts],
+                                      receipts: [...userLoginStore.userInfor.receipts, updatedCart],
                                       information: {
                                         userName,
                                         phone,

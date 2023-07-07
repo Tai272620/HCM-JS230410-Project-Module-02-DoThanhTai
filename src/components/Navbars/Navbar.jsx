@@ -19,7 +19,7 @@ export default function Navbar() {
     const userLoginStore = useSelector(store => store.userLoginStore)
 
     const cartItems = useSelector(store => store.userLoginStore.userInfor?.carts || []);
-    
+
     const cartTotalQuantity = cartItems.reduce((total, food) => {
         return total + food.quantity
     }, 0);
@@ -81,7 +81,7 @@ export default function Navbar() {
                         <Link to="/menu/drink"><span className="dropdown-item">Drink</span></Link>
                     </ul>
                 </div>
-                <a onClick={() => navigate("/order")} style={{cursor:"pointer"}}>Order</a>
+                <a onClick={() => navigate("/order")} style={{cursor:"pointer"}}>Orders</a>
                 <a href="#blogs">Blogs</a>
             </nav>
 

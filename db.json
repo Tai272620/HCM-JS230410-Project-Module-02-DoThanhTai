@@ -83,50 +83,19 @@
       "receipts": [
         [
           {
-            "productId": 34,
-            "quantity": 1,
-            "url": "../image/drink/drink_02.jpg",
-            "name": "Milo",
-            "price": 26500
-          }
-        ],
-        [
-          {
-            "productId": 7,
+            "productId": 28,
             "quantity": 2,
-            "url": "../image/combo/combo_07.jpg",
-            "name": "Combo Carrot Burger",
-            "price": 109000
-          },
-          {
-            "productId": 2,
-            "quantity": 1,
-            "url": "../image/combo/combo_02.jpg",
-            "name": "King Jr Meal 2",
-            "price": 77500
-          },
-          {
-            "productId": 4,
-            "quantity": 2,
-            "url": "../image/combo/combo_04.jpg",
-            "name": "Hello Summer 1",
-            "price": 174500
-          }
-        ],
-        [
-          {
-            "productId": 37,
-            "quantity": 2,
-            "url": "../image/drink/drink_05.jpg",
-            "name": "Coca",
-            "price": 24500
+            "url": "../image/chicken/chicken_08.jpg",
+            "name": "Combo Chicken BBQ 2PCS",
+            "price": 116500,
+            "time": "9:31 PM 6-7-2023"
           }
         ]
       ],
       "information": {
-        "userName": "aD",
-        "phone": "AdD",
-        "address": "ÁDSd"
+        "userName": "sddsa",
+        "phone": "sddasd",
+        "address": "sdasas"
       },
       "id": 2
     },
@@ -217,13 +186,22 @@
             "name": "King Jr Meal 1",
             "price": 57500
           }
+        ],
+        [
+          {
+            "productId": 36,
+            "quantity": 1,
+            "url": "../image/drink/drink_04.jpg",
+            "name": "Nestea",
+            "price": 26500,
+            "time": "9:58 PM 6-7-2023"
+          }
         ]
       ],
       "information": {
-        "userName": "quoc hai",
-        "phone": "123",
-        "address": "Ha NOI",
-        "time": "7:32 PM 6-7-2023"
+        "userName": "earfwef",
+        "phone": "wqeew",
+        "address": "sadas"
       },
       "id": 5
     }
